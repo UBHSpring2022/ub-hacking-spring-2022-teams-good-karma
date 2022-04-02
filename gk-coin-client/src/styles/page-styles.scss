@@ -1,0 +1,35 @@
+.login-wrapper {
+    .login-fields {
+        padding: 50px 50px 50px 160px;
+    }
+    .input-width {
+        width: 27rem;
+    }
+    .welcome-back-txt {
+        font-weight: 400;
+        font-size: 16px;
+        color: #2d3748;
+    }
+    .login-txt {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 35px;
+        color: #1a202c;
+    }
+    .signup-txt {
+        font-weight: 400;
+        font-size: 16px;
+        color: #616161;
+        .subtxt {
+            color: #2b6cb0;
+            cursor: pointer;
+        }
+    }
+    .img-wrapper {
+        height: 100vh;
+        object-fit: cover;
+    }
+    .role-header {
+        font-weight: bold;
+    }
+}

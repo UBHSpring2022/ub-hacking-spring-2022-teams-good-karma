@@ -1,42 +1,59 @@
 {
-  "name": "gk-coin-client",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-scripts": "5.0.0",
-    "scss": "^0.2.4",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "tailwindcss": "^3.0.23"
-  }
+    "name": "gk-coin-client",
+    "version": "0.1.0",
+    "private": true,
+    "dependencies": {
+        "@emotion/react": "^11.8.2",
+        "@emotion/styled": "^11.8.1",
+        "@mui/material": "^5.5.3",
+        "@testing-library/jest-dom": "^5.16.3",
+        "@testing-library/react": "^12.1.4",
+        "@testing-library/user-event": "^13.5.0",
+        "react": "^18.0.0",
+        "react-dom": "^18.0.0",
+        "react-router-dom": "^6.3.0",
+        "react-scripts": "5.0.0",
+        "scss": "^0.2.4",
+        "web-vitals": "^2.1.4",
+        "web3": "^1.7.1",
+        "web3-eth-accounts": "^1.7.1"
+    },
+    "scripts": {
+        "start": "react-app-rewired start",
+        "build": "react-app-rewired build",
+        "test": "react-app-rewired test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "assert": "^2.0.0",
+        "buffer": "^6.0.3",
+        "crypto-browserify": "^3.12.0",
+        "https-browserify": "^1.0.0",
+        "os-browserify": "^0.3.0",
+        "process": "^0.11.10",
+        "react-app-rewired": "^2.2.1",
+        "sass": "^1.49.11",
+        "stream-browserify": "^3.0.0",
+        "stream-http": "^3.2.0",
+        "tailwindcss": "^3.0.23",
+        "url": "^0.11.0"
+    }
 }
