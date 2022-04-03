@@ -86,7 +86,6 @@ const Organizations = () => {
                                         Donate
                                     </Button>
                                 </div>
-                                <p>Current Balance: {record.balance}</p>
                                 <div className="info-desc">
                                     NGO stands for non-governmental
                                     organization. While there is no universally

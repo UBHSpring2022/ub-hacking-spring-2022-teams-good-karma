@@ -8,6 +8,7 @@ import TableRow from '@mui/material/TableRow'
 import { Button, Paper } from '@mui/material'
 import GkValidator from './GkValidator'
 import { ethContext } from '../ethContext'
+import Cookies from 'js-cookie'
 const Profile = () => {
     const [showValidateDialog, setShowValidateDialog] = useState(false);
     const [userBalance, setUserBalanace] = useState(0);
@@ -17,7 +18,8 @@ const Profile = () => {
         return { transactionId, coins, action, dateAndTime, status }
     }
     const getBalance =  async () => {
-        let x = await etherContext.methods.balanceDetails("0xaDed0f5bAd7c0E6588C2c65f86aC687b4f918fFe").call({from:"0xaDed0f5bAd7c0E6588C2c65f86aC687b4f918fFe"})
+        let currentUser = Cookies.get('auth')
+        let x = await etherContext.methods.balanceDetails(currentUser).call({from:currentUser})
         console.log("x", x)
         setUserBalanace(x.escrow)
 

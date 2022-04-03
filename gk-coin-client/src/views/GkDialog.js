@@ -2,7 +2,7 @@ import { Button, TextField, TextareaAutosize,  } from '@mui/material'
 import React, { useEffect, useState, useContext } from 'react'
 import { Modal } from 'rsuite'
 import { ethContext } from '../ethContext'
-
+import Cookies from 'js-cookie'
 const GkDialog = (props) => {
     const [coins, setCoins] = useState(0)
     const [comments, setComments] = useState('')
@@ -16,8 +16,9 @@ const GkDialog = (props) => {
     }
 
     const completePayment = async () => {
+        let currentUser = Cookies.get('auth')
         await etherContext.methods.donate(`${props.record.address}`).send({
-            from: "0x80a7635930fAcb45894fb185E5c8F92cb78c1f55",
+            from: currentUser,
             value: `${coins}000000000000000000`
         })
         props.closeDialog();

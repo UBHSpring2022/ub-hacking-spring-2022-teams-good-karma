@@ -19,7 +19,7 @@ const LoginPage = () => {
     }
 
     const loginUser = () => {
-        Cookies.set('auth', 'user1')
+        Cookies.set('auth', userName)
         navigate('/home')
     }
 
