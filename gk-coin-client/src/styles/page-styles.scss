@@ -32,6 +32,13 @@
     .role-header {
         font-weight: bold;
     }
+    a {
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+    }
 }
 
 .gk-sidebar {
@@ -39,6 +46,13 @@
     height: 100vh;
     background-color: #fff;
     border-right: 1px solid #f2f2f2;
+    a {
+        &:hover,
+        &:active,
+        &:focus {
+            text-decoration: none;
+        }
+    }
     .title-txt {
         font-weight: 700;
         font-size: 32px;
@@ -159,5 +173,57 @@
     }
     .field-name {
         font-weight: bold;
+    }
+}
+
+.profile-wrapper {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 32px;
+    .wallet-wrapper {
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 10px;
+        border: 1px solid #f2f2f2;
+    }
+    .wallet-title {
+        font-size: 20px;
+        font-weight: bold;
+    }
+    .wallet-sub-title {
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .wallet-amt {
+        font-size: 16px;
+    }
+    .dep-text {
+        font-size: 16px;
+        font-weight: bold;
+    }
+}
+
+.transactions-wrapper {
+    margin-top: 20px;
+    width: 100%;
+    height: calc(100vh - 290px);
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #f2f2f2;
+    .MuiTableCell-head {
+        font-weight: bold;
+        color: #575757;
+    }
+    .color-green {
+        color: #16a34a;
+    }
+    .color-red {
+        color: rgb(234 88 12);
+    }
+    .color-blue {
+        color: rgb(6 182 212);
     }
 }

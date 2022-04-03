@@ -1,97 +1,168 @@
-import PermIdentityIcon from '@mui/icons-material/PermIdentity'
-import { Button, TextField, Box } from '@mui/material'
-import React, { useState } from 'react'
-import HomeIcon2 from '../resources/Home.svg'
-import NgoImage from '../resources/ngo-image.jpeg'
-import GkDialog from './GkDialog'
-import SearchIcon from '@mui/icons-material/Search'
+import React from 'react'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import { Button, Paper } from '@mui/material'
 
 const Profile = () => {
-    const [showDialog, setShowDialog] = useState(false)
-    const [dialogData, setDialogData] = useState({})
-    const openDialog = () => {
-        setShowDialog(true)
+    function createData(transactionId, coins, action, dateAndTime, status) {
+        return { transactionId, coins, action, dateAndTime, status }
     }
-    const closeDialog = () => {
-        setShowDialog(false)
-    }
+
+    const rows = [
+        createData(
+            'asdn23daf',
+            12.3,
+            'Donate',
+            ' April 3rd 2022, 12:55:07 am',
+            'Completed'
+        ),
+        createData(
+            '123ds23',
+            213.4,
+            'Deposit',
+            ' April 3rd 2022, 01:55:07 am',
+            'Completed'
+        ),
+        createData(
+            '12asd233',
+            32.4,
+            'Deposit',
+            ' April 2rd 2022, 12:43:07 am',
+            'Failed'
+        ),
+    ]
     return (
         <>
-            <div className="flex flex-row">
-                <div className="gk-sidebar flex flex-col items-center">
-                    <div className="title-txt mt-10">GK Coin</div>
-
-                    <div className="mt-10 flex flex-col sidebar-items">
-                        <div className="sidebar-item active-item">
-                            <img src={HomeIcon2} alt="Home Icon" />{' '}
-                            <div className="ml-5">Home</div>
-                        </div>
-                        <div className="sidebar-item">
-                            <PermIdentityIcon />{' '}
-                            <div className="ml-5">Profile</div>
-                        </div>
+            <div className="flex flex-col org-wrapper">
+                <div className="flex flex-row justify-between org-header items-center">
+                    <div className="org-title">Profile</div>
+                    <div>
+                        <Button variant="contained">Add GK Coin</Button>
                     </div>
                 </div>
-                <div className="flex flex-col org-wrapper">
-                    <div className="flex flex-row justify-between org-header items-center">
-                        <div className="org-title">Organizations</div>
-                        <div>
-                            <Box
-                                sx={{ display: 'flex', alignItems: 'flex-end' }}
-                            >
-                                <SearchIcon className="mr-2" />
-                                <TextField
-                                    label="Search organizations"
-                                    variant="standard"
-                                />
-                            </Box>
+                <div className="profile-wrapper">
+                    <div className="wallet-wrapper flex justify-between">
+                        <div className="flex flex-col">
+                            <div className="wallet-title">Wallet</div>
+                            <div className="wallet-sub-title mt-5">
+                                Balance in wallet
+                            </div>
+                            <div className="wallet-amt">12.43 GK</div>
                         </div>
-                    </div>
-                    <div className="org-list">
-                        {[1, 2, 3, 4, 5].map((record) => (
-                            <div className="card-wrapper" key={record}>
-                                <div>
-                                    <img
-                                        src={NgoImage}
-                                        alt="Ngo"
-                                        className="img-wrapper"
-                                    />
-                                </div>
-                                <div className="info-wrapper">
-                                    <div className="info-title flex flex-row justify-between">
-                                        Organization Name
-                                        <Button
-                                            variant="outlined"
-                                            className="button-padding"
-                                            onClick={() => openDialog()}
-                                        >
-                                            Donate
-                                        </Button>
-                                    </div>
-                                    <div className="info-desc">
-                                        NGO stands for non-governmental
-                                        organization. While there is no
-                                        universally agreed-upon definition of an
-                                        NGO, typically it is a voluntary group
-                                        or institution with a social mission,
-                                        which operates independently from the
-                                        government. NGOs or similar
-                                        organizations exist in all parts of the
-                                        world.
-                                    </div>
+                        <div className="flex flex-col justify-center w-72">
+                            <div className="flex flex-row justify-between">
+                                <div className="dep-text">Total Deposit:</div>
+                                <div className="text-base">2130.23 GK</div>
+                            </div>
+                            <div className="flex flex-row justify-between mt-3">
+                                <div className="dep-text">Total Donation:</div>
+                                <div className="text-green-600 text-base">
+                                    1130.23 GK
                                 </div>
                             </div>
-                        ))}
+                        </div>
+                    </div>
+                    <div className="transactions-wrapper">
+                        <div className="wallet-title">Transactions</div>
+                        <Paper
+                            elevation={0}
+                            sx={{
+                                width: '100%',
+                                height: '80%',
+                                overflow: 'hidden',
+                            }}
+                        >
+                            <TableContainer
+                                className="mt-5"
+                                sx={{ maxHeight: '100%' }}
+                            >
+                                <Table
+                                    stickyHeader
+                                    sx={{ minWidth: 650 }}
+                                    aria-label="simple table"
+                                >
+                                    <TableHead>
+                                        <TableRow>
+                                            <TableCell className="font-bold">
+                                                Transaction Id
+                                            </TableCell>
+                                            <TableCell className="font-bold">
+                                                Coins
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                Action
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                Date & Time
+                                            </TableCell>
+                                            <TableCell align="right">
+                                                Status
+                                            </TableCell>
+                                        </TableRow>
+                                    </TableHead>
+                                    <TableBody>
+                                        {rows.map((row) => (
+                                            <TableRow
+                                                key={row.name}
+                                                sx={{
+                                                    '&:last-child td, &:last-child th':
+                                                        { border: 0 },
+                                                }}
+                                            >
+                                                <TableCell
+                                                    component="th"
+                                                    scope="row"
+                                                >
+                                                    {row.transactionId}
+                                                </TableCell>
+                                                <TableCell
+                                                    component="th"
+                                                    scope="row"
+                                                >
+                                                    {row.coins}
+                                                </TableCell>
+                                                <TableCell
+                                                    align="right"
+                                                    className={[
+                                                        row.action ===
+                                                            'Deposit' &&
+                                                            'color-blue',
+                                                        row.action ===
+                                                            'Donate' &&
+                                                            'color-green',
+                                                    ]}
+                                                >
+                                                    {row.action}
+                                                </TableCell>
+                                                <TableCell align="right">
+                                                    {row.dateAndTime}
+                                                </TableCell>
+                                                <TableCell
+                                                    align="right"
+                                                    className={[
+                                                        row.status ===
+                                                            'Completed' &&
+                                                            'color-green',
+                                                        row.status ===
+                                                            'Failed' &&
+                                                            'color-red',
+                                                    ]}
+                                                >
+                                                    {row.status}
+                                                </TableCell>
+                                            </TableRow>
+                                        ))}
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Paper>
                     </div>
                 </div>
             </div>
-            {showDialog && (
-                <GkDialog
-                    dialogData={dialogData}
-                    showDialog={showDialog}
-                    closeDialog={() => closeDialog()}
-                ></GkDialog>
-            )}
         </>
     )
 }

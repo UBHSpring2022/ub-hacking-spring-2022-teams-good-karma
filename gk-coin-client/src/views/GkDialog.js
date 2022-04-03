@@ -19,7 +19,7 @@ const GkDialog = (props) => {
                         </div>
                         <div className="w-2/4 mt-5">
                             <TextField
-                                label="Amount in $"
+                                label="GK coins"
                                 type="number"
                                 variant="outlined"
                             />
