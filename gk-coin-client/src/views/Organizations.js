@@ -5,7 +5,6 @@ import GkDialog from './GkDialog'
 import SearchIcon from '@mui/icons-material/Search'
 const Organizations = () => {
     const [showDialog, setShowDialog] = useState(false)
-    const [dialogData, setDialogData] = useState({})
     const openDialog = () => {
         setShowDialog(true)
     }
@@ -65,7 +64,6 @@ const Organizations = () => {
             </div>
             {showDialog && (
                 <GkDialog
-                    dialogData={dialogData}
                     showDialog={showDialog}
                     closeDialog={() => closeDialog()}
                 ></GkDialog>

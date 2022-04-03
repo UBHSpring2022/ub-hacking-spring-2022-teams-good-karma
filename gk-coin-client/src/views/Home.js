@@ -8,9 +8,15 @@ import Profile from './Profile'
 import { Link, useLocation } from 'react-router-dom'
 import LogoutIcon from '@mui/icons-material/Logout'
 import Logo from '../resources/logo.png'
+import { useNavigate } from 'react-router-dom'
+import Cookies from 'js-cookie'
 const Home = () => {
     const location = useLocation()
-    console.log(location.pathname)
+    let navigate = useNavigate()
+    const handleLogout = () => {
+        Cookies.remove('auth')
+        navigate('/login')
+    }
     return (
         <>
             <div className="flex flex-row">
@@ -55,7 +61,10 @@ const Home = () => {
                             </Link>
                         </div>
                     </div>
-                    <div className={'sidebar-item active-item mb-5'}>
+                    <div
+                        onClick={handleLogout}
+                        className={'sidebar-item active-item mb-5'}
+                    >
                         <LogoutIcon /> <div className="ml-5">Logout</div>
                     </div>
                 </div>

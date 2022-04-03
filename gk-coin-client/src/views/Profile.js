@@ -119,9 +119,9 @@ const Profile = () => {
                                         </TableRow>
                                     </TableHead>
                                     <TableBody>
-                                        {rows.map((row) => (
+                                        {rows.map((row, index) => (
                                             <TableRow
-                                                key={row.name}
+                                                key={index}
                                                 sx={{
                                                     '&:last-child td, &:last-child th':
                                                         { border: 0 },
@@ -148,7 +148,7 @@ const Profile = () => {
                                                         row.action ===
                                                             'Donate' &&
                                                             'color-green',
-                                                    ]}
+                                                    ].join(' ')}
                                                 >
                                                     {row.action}
                                                 </TableCell>
@@ -164,7 +164,7 @@ const Profile = () => {
                                                         row.status ===
                                                             'Failed' &&
                                                             'color-red',
-                                                    ]}
+                                                    ].join(' ')}
                                                 >
                                                     {row.status}
                                                 </TableCell>

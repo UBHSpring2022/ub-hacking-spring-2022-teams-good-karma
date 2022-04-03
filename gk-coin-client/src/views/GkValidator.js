@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal } from 'rsuite'
 import {
     Button,
@@ -12,6 +12,11 @@ import {
 } from '@mui/material'
 
 const GkValidator = (props) => {
+    const [selectedOrganization, setSelectedOrganization] = useState('')
+
+    const handleOrganizationChange = (event) => {
+        setSelectedOrganization(event.target.value)
+    }
     const handleChange = (x, emails) => console.log(x, emails)
     return (
         <>
@@ -32,6 +37,8 @@ const GkValidator = (props) => {
 
                                     <Select
                                         label="Organization"
+                                        value={selectedOrganization}
+                                        onChange={handleOrganizationChange}
                                         fullWidth
                                         labelId="age-simple-select-label"
                                         id="demo-simple-select-helper"

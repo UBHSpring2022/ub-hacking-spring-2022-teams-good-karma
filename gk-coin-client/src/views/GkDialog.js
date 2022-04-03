@@ -1,8 +1,16 @@
 import { Button, TextField, TextareaAutosize } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 import { Modal } from 'rsuite'
 
 const GkDialog = (props) => {
+    const [coins, setCoins] = useState(0)
+    const [comments, setComments] = useState('')
+    const handleCoinChange = (event) => {
+        setCoins(event.target.value)
+    }
+    const handleCommentsChange = (event) => {
+        setComments(event.target.value)
+    }
     return (
         <>
             <Modal overflow={true} open={true} onClose={props?.closeDialog}>
@@ -19,6 +27,8 @@ const GkDialog = (props) => {
                         </div>
                         <div className="w-2/4 mt-5">
                             <TextField
+                                value={coins}
+                                onChange={handleCoinChange}
                                 label="GK coins"
                                 type="number"
                                 variant="outlined"
@@ -27,6 +37,8 @@ const GkDialog = (props) => {
                         <div className="w-2/4 mt-5">
                             <div className="field-name">Comments</div>
                             <TextareaAutosize
+                                onChange={handleCommentsChange}
+                                value={comments}
                                 minRows={3}
                                 placeholder="Enter your comments"
                                 style={{

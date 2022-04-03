@@ -6,9 +6,21 @@ import LoginPage from './views/LoginPage'
 import SignupPage from './views/SignupPage'
 import Play from './views/Play'
 import Home from './views/Home'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import 'rsuite/dist/rsuite.min.css'
+import { useEffect } from 'react'
+import Cookies from 'js-cookie'
+import { useNavigate } from 'react-router-dom'
 function App() {
+    const location = useLocation()
+    let navigate = useNavigate()
+    useEffect(() => {
+        if (!Cookies.get('auth')) {
+            navigate('/login')
+        } else if (location.pathname === '/') {
+            navigate('/home')
+        }
+    }, [])
     return (
         <div className="App w-screen h-screen">
             <Routes>
