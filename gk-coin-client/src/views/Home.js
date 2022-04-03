@@ -27,7 +27,7 @@ const Home = () => {
     }
 
     useEffect(() => {
-        let deploy_contract = new web3.eth.Contract(abi, "0x72D096b0776aEf49f63aEb3363Cd39C9b5C2ece9");
+        let deploy_contract = new web3.eth.Contract(abi, "0x5C61EDBAAe7342D754F5e4cbe086505bb3080Cf1");
         console.log(deploy_contract);
         setEthContext(deploy_contract);
     }, [])

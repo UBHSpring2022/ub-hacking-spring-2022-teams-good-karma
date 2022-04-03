@@ -16,10 +16,11 @@ const Profile = () => {
     function createData(transactionId, coins, action, dateAndTime, status) {
         return { transactionId, coins, action, dateAndTime, status }
     }
-    const getBalance =  () => {
-        etherContext.methods.number_of_accounts().call({from: "0xF0A6Be2F3abA0F39C451CA8f2083B9177c849E2a"})
-        .then(data =>console.log(data)) 
-        // console.log(balance)
+    const getBalance =  async () => {
+        let x = await etherContext.methods.balanceDetails("0x80a7635930fAcb45894fb185E5c8F92cb78c1f55").call({from:"0x2187EDc33904b8f432c877DAE29406538F6B60Eb"})
+
+        setUserBalanace(x.escrow)
+
     }
     useEffect(() => {
         console.log(getBalance());
@@ -77,7 +78,7 @@ const Profile = () => {
                             <div className="wallet-sub-title mt-5">
                                 Balance in wallet
                             </div>
-                            <div className="wallet-amt">12.43 GK</div>
+                            <div className="wallet-amt"> {userBalance} GK</div>
                         </div>
                         <div className="flex flex-col justify-center w-72">
                             <div className="flex flex-row justify-between">

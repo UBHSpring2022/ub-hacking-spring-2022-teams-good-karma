@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Button, TextField, Box } from '@mui/material'
 import NgoImage from '../resources/ngo-image.jpeg'
 import GkDialog from './GkDialog'
 import SearchIcon from '@mui/icons-material/Search'
+import { ethContext } from '../ethContext'
 const Organizations = () => {
     const [showDialog, setShowDialog] = useState(false)
     const openDialog = () => {
@@ -11,6 +12,16 @@ const Organizations = () => {
     const closeDialog = () => {
         setShowDialog(false)
     }
+
+    const { etherContext, userAddress,  setEthContext } = useContext(ethContext);
+
+    useEffect(()=> {
+
+        etherContext.methods.getAccountList().call({from:"0x2187EDc33904b8f432c877DAE29406538F6B60Eb"})
+    })
+
+    
+
     return (
         <>
             <div className="flex flex-col org-wrapper">
