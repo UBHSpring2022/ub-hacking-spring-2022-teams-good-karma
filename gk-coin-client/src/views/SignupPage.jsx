@@ -1,5 +1,5 @@
 import React from 'react'
-import { TextField, Checkbox } from '@mui/material'
+import { TextField, MenuItem, Select, InputLabel, FormControl } from '@mui/material'
 import Button from '@mui/material/Button'
 import bgImage from '../resources/signin-bg.jpeg'
 import { Link } from 'react-router-dom'
@@ -35,17 +35,22 @@ const LoginPage = () => {
                     />
                 </div>
                 <div>
-                    <div className="mt-5">
-                        <div className="role-header">Role</div>
-                        <div>
-                            <Checkbox defaultChecked /> Organization
-                        </div>
-                        <div>
-                            <Checkbox defaultChecked /> Vendor
-                        </div>
-                        <div>
-                            <Checkbox defaultChecked /> Donor
-                        </div>
+                    <div className="mt-5 input-width">
+                    <FormControl className="input-width">
+                    <InputLabel id="age-simple-select-label">Role</InputLabel>
+
+                        <Select
+                            label="Role"
+                            fullWidth
+                            labelId="age-simple-select-label"
+                            id="demo-simple-select-helper"
+
+                        >
+                            <MenuItem value={10}>Donor</MenuItem>
+                            <MenuItem value={20}>Vendor</MenuItem>
+                            <MenuItem value={30}>Organization</MenuItem>
+                        </Select>
+                    </FormControl>
                     </div>
                     <div className="mt-5">
                         <Button variant="outlined" className="input-width">

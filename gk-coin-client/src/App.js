@@ -5,6 +5,7 @@ import './App.css'
 import LoginPage from './views/LoginPage'
 import SignupPage from './views/SignupPage'
 import Play from './views/Play'
+import Profile from './views/Profile'
 import { Route, Routes } from 'react-router-dom'
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/signup" element={<SignupPage />} />
                 <Route path="/play" element={<Play />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </div>
     )

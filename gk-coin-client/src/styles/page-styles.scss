@@ -33,3 +33,33 @@
         font-weight: bold;
     }
 }
+
+.gk-sidebar {
+    width: 20%;
+    height: 100vh;
+    background-color: #f8f7ff;
+    .title-txt {
+        font-weight: 700;
+        font-size: 32px;
+        color: #000000;
+    }
+    .sidebar-items {
+        align-self: flex-start;
+        width: 100%;
+    }
+    .sidebar-item {
+        width: 100%;
+        display: flex;
+        cursor: pointer;
+        // justify-content: space-between;
+        align-items: center;
+        padding: 20px 20px 20px 45px;
+        color: #a5a2b8;
+        &.active-item {
+            color: #352e5b;
+        }
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
