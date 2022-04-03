@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -7,12 +7,24 @@ import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { Button, Paper } from '@mui/material'
 import GkValidator from './GkValidator'
-
+import { ethContext } from '../ethContext'
 const Profile = () => {
-    const [showValidateDialog, setShowValidateDialog] = useState(false)
+    const [showValidateDialog, setShowValidateDialog] = useState(false);
+    const [userBalance, setUserBalanace] = useState(0);
+    const { etherContext,userAddress, setEthContext } = useContext(ethContext);
+
     function createData(transactionId, coins, action, dateAndTime, status) {
         return { transactionId, coins, action, dateAndTime, status }
     }
+    const getBalance =  () => {
+        etherContext.methods.number_of_accounts().call({from: "0xF0A6Be2F3abA0F39C451CA8f2083B9177c849E2a"})
+        .then(data =>console.log(data)) 
+        // console.log(balance)
+    }
+    useEffect(() => {
+        console.log(getBalance());
+       
+    }, [])
 
     const openValidateDialog = () => {
         setShowValidateDialog(true)
