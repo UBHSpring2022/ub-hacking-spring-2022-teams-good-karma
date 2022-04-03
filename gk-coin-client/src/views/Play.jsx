@@ -6,8 +6,8 @@ let web3 = new Web3("ws://localhost:7545");
 const Play = () => {
     const tryAddAccount = () => {
         console.log(web3.eth)
-        web3.eth.accounts.create("");
-        // console.log(web3.eth.accounts);
+        console.log("Create",web3.eth.accounts.create())
+        console.log(web3.eth.accounts);
         // var accounts = new Accounts('ws://10.84.21.187:7545');
         // console.log(accounts);
     }

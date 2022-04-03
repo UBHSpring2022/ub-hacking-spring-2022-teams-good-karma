@@ -37,7 +37,8 @@
 .gk-sidebar {
     width: 20%;
     height: 100vh;
-    background-color: #f8f7ff;
+    background-color: #fff;
+    border-right: 1px solid #f2f2f2;
     .title-txt {
         font-weight: 700;
         font-size: 32px;
@@ -61,5 +62,102 @@
         &:hover {
             opacity: 0.7;
         }
+    }
+}
+.org-wrapper {
+    width: 80%;
+    background-color: #fff;
+}
+.org-header {
+    background-color: #fff;
+    height: 80px;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid #f2f2f2;
+    .org-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+    }
+}
+.org-list {
+    background-color: #f2f2f2;
+    width: 100%;
+    height: calc(100vh - 80px);
+    padding: 32px;
+    grid-gap: 1rem;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    overflow-y: scroll;
+    .card-wrapper {
+        .button-padding {
+            padding: 0px 5px;
+        }
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.08);
+        border-radius: 10px;
+        box-shadow: 0 2px 5px 1px rgb(64 60 67 / 16%);
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        height: 360px;
+        width: 100%;
+        .img-wrapper {
+            border-radius: 10px 10px 0 0;
+            height: 220px;
+            object-fit: cover;
+            width: 100%;
+        }
+        .info-wrapper {
+            padding: 15px;
+        }
+        .info-title {
+            color: #000;
+            font-size: 16px;
+            font-weight: 700;
+        }
+        .info-desc {
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            color: #70757a;
+            display: -webkit-box;
+            font-size: 16px;
+            height: 72px;
+            margin-top: 10px;
+            overflow: hidden;
+            text-align: justify;
+            text-overflow: ellipsis;
+        }
+    }
+}
+
+.rs-modal-wrapper {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    .rs-modal-title {
+        color: #000000;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    .rs-btn-close .rs-icon {
+        font-size: 20px;
+    }
+    .gk-modal-img {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+    }
+    .modal-desc {
+        margin-top: 10px;
+        font-size: 16px;
+        color: #70757a;
+        text-align: justify;
+    }
+    .field-name {
+        font-weight: bold;
     }
 }

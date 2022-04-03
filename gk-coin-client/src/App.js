@@ -7,6 +7,7 @@ import SignupPage from './views/SignupPage'
 import Play from './views/Play'
 import Profile from './views/Profile'
 import { Route, Routes } from 'react-router-dom'
+import 'rsuite/dist/rsuite.min.css'
 function App() {
     return (
         <div className="App w-screen h-screen">
