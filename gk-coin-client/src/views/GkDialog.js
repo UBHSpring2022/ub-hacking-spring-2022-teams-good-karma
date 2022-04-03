@@ -7,7 +7,7 @@ const GkDialog = (props) => {
     const [coins, setCoins] = useState(0)
     const [comments, setComments] = useState('')
     const { etherContext, userAddress,  setEthContext } = useContext(ethContext);
-
+    console.log(props.record.address)
     const handleCoinChange = (event) => {
         setCoins(event.target.value)
     }
@@ -16,9 +16,9 @@ const GkDialog = (props) => {
     }
 
     const completePayment = async () => {
-        await etherContext.methods.donate("0x80a7635930fAcb45894fb185E5c8F92cb78c1f55").send({
-            from: "0xF0A6Be2F3abA0F39C451CA8f2083B9177c849E2a",
-            value: `${coins* Math.pow(10, 18)}`
+        await etherContext.methods.donate(`${props.record.address}`).send({
+            from: "0x80a7635930fAcb45894fb185E5c8F92cb78c1f55",
+            value: `${coins}000000000000000000`
         })
         props.closeDialog();
     }

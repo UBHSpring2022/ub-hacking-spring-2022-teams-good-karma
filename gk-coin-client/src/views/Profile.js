@@ -17,8 +17,8 @@ const Profile = () => {
         return { transactionId, coins, action, dateAndTime, status }
     }
     const getBalance =  async () => {
-        let x = await etherContext.methods.balanceDetails("0x80a7635930fAcb45894fb185E5c8F92cb78c1f55").call({from:"0x2187EDc33904b8f432c877DAE29406538F6B60Eb"})
-
+        let x = await etherContext.methods.balanceDetails("0xaDed0f5bAd7c0E6588C2c65f86aC687b4f918fFe").call({from:"0xaDed0f5bAd7c0E6588C2c65f86aC687b4f918fFe"})
+        console.log("x", x)
         setUserBalanace(x.escrow)
 
     }
