@@ -108,6 +108,10 @@
         .button-padding {
             padding: 0px 5px;
         }
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.03);
+            box-shadow: 0 2px 8px 1px rgb(64 60 67 / 24%);
+        }
         background-color: #fff;
         border: 1px solid rgba(0, 0, 0, 0.08);
         border-radius: 10px;
@@ -226,4 +230,10 @@
     .color-blue {
         color: rgb(6 182 212);
     }
+}
+
+.logo-img {
+    width: 45x;
+    height: 55px;
+    margin-right: 10px;
 }

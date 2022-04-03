@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Table from '@mui/material/Table'
 import TableBody from '@mui/material/TableBody'
 import TableCell from '@mui/material/TableCell'
@@ -6,10 +6,19 @@ import TableContainer from '@mui/material/TableContainer'
 import TableHead from '@mui/material/TableHead'
 import TableRow from '@mui/material/TableRow'
 import { Button, Paper } from '@mui/material'
+import GkValidator from './GkValidator'
 
 const Profile = () => {
+    const [showValidateDialog, setShowValidateDialog] = useState(false)
     function createData(transactionId, coins, action, dateAndTime, status) {
         return { transactionId, coins, action, dateAndTime, status }
+    }
+
+    const openValidateDialog = () => {
+        setShowValidateDialog(true)
+    }
+    const closeValidateDialog = () => {
+        setShowValidateDialog(false)
     }
 
     const rows = [
@@ -41,7 +50,12 @@ const Profile = () => {
                 <div className="flex flex-row justify-between org-header items-center">
                     <div className="org-title">Profile</div>
                     <div>
-                        <Button variant="contained">Add GK Coin</Button>
+                        <Button
+                            variant="contained"
+                            onClick={() => openValidateDialog()}
+                        >
+                            Validate Item
+                        </Button>
                     </div>
                 </div>
                 <div className="profile-wrapper">
@@ -163,6 +177,12 @@ const Profile = () => {
                     </div>
                 </div>
             </div>
+            {showValidateDialog && (
+                <GkValidator
+                    showDialog={showValidateDialog}
+                    closeDialog={() => closeValidateDialog()}
+                ></GkValidator>
+            )}
         </>
     )
 }
